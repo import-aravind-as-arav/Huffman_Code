@@ -1,8 +1,11 @@
 # Huffman Coding in python
 from prettytable import PrettyTable #For creating tables in Python
 import operator
+import csv
 
-file = open("for_encoding.txt",encoding='UTF-8') #Text file that contains the Biography of James C Maxwell
+
+#Open the text file that contains the Biography of James C Maxwell
+file = open("for_encoding.txt",encoding='UTF-8') 
 string = file.read().replace("\n", "") #replace Newline character with space.
 file.close()
 
@@ -89,3 +92,16 @@ for j in roll:
 print("Encoded roll no. is : ",roll_code)
 print("")
 print("Encoded name is : ",name_code)
+
+
+name_len=len(name)
+roll_len=len(roll)
+name_code_len=len(name_code)
+roll_code_len=len(roll_code)
+
+#Inference
+print("")
+print("Bits required to transmit name and roll no. without encoding = ",(len(name)*8)+(len(roll)*8))
+print("")
+print("Bits required to transmit after encoding= ",name_code_len+roll_code_len)
+print("")
